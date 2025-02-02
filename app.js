@@ -1,8 +1,5 @@
-
 const { google } = require('googleapis');
-
-const {TwitterApi} = require('twitter-api-v2')
-
+const { TwitterApi } = require('twitter-api-v2');
 
 // Configure Twitter client with your credentials
 const twitterClient = new TwitterApi({
@@ -11,7 +8,6 @@ const twitterClient = new TwitterApi({
   accessToken: process.env.TWITTER_ACCESS_TOKEN,
   accessSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
 });
-
 
 const rwClient = twitterClient.readWrite;
 
@@ -36,7 +32,7 @@ async function getPlaylistItems(playlistId) {
 // Function to post a tweet
 async function postTweet(status) {
   try {
-     const result = await rwClient.v2.tweet(status);
+    const result = await rwClient.v2.tweet(status);
     console.log('Tweet posted successfully:', result);
   } catch (error) {
     console.error('Error posting tweet:', error);
@@ -67,3 +63,6 @@ async function tweetRandomSong() {
     console.error('Error tweeting song:', error);
   }
 }
+
+// This function will be called by GitHub Actions
+tweetRandomSong();
