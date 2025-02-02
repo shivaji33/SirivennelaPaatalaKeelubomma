@@ -1,6 +1,5 @@
 
 const { google } = require('googleapis');
-const schedule = require('node-schedule');
 
 const {TwitterApi} = require('twitter-api-v2')
 
@@ -68,5 +67,3 @@ async function tweetRandomSong() {
     console.error('Error tweeting song:', error);
   }
 }
-
-schedule.scheduleJob('0 13,19 * * *', tweetRandomSong);

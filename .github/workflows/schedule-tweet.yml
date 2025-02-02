@@ -1,23 +1,28 @@
-name: Scheduled Tweet Job
+name: Schedule tweetRandomSong
 
 on:
   schedule:
-    - cron: "30 7 * * *"
-    - cron: "30 13 * * *"
-  workflow_dispatch:
+    # These cron expressions run at 9:00 and 21:00 UTC.
+    # Adjust the times if you need a different timezone.
+    - cron: '0 9 * * *'
+    - cron: '0 21 * * *'
 
 jobs:
   tweet:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Node.js
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16'
+
       - name: Install dependencies
         run: npm install
-      - name: Run the tweet script
+
+      - name: Run tweetRandomSong function
         run: node app.js
         env:
           TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
