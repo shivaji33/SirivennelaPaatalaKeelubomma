@@ -2,7 +2,10 @@ name: Tweet Random Song
 
 on:
   schedule:
-    - cron: '0 9 * * *'  # Runs at 9 AM and 9 PM IST (UTC+5:30)
+    - cron: '30 3 * * *'  # Runs at 3:30 AM UTC (9:00 AM IST)
+    - cron: '30 15 * * *'  # Runs at 3:30 PM UTC (9:00 PM IST)
+  workflow_dispatch:  # Allows manual triggering
+
 jobs:
   tweet:
     runs-on: ubuntu-latest
