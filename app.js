@@ -69,4 +69,4 @@ async function tweetRandomSong() {
   }
 }
 
-schedule.scheduleJob('0 9,19 * * *', tweetRandomSong);
+schedule.scheduleJob('0 13,19 * * *', tweetRandomSong);
