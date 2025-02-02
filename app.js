@@ -1,5 +1,7 @@
 const { google } = require('googleapis');
 const { TwitterApi } = require('twitter-api-v2');
+require('dotenv').config()
+
 
 // Configure Twitter client with your credentials
 const twitterClient = new TwitterApi({
